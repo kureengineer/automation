@@ -1,5 +1,5 @@
 #Log File
-LOG="$(dirname "$0")/autobot.log"
+LOG="$(dirname "$0")/naslibrary.log"
 
 #Location of iTunes Library on Office Computer
 LIBRARY="/Users/kureadmin/Dropbox/Library/iTunes Library.xml"
@@ -13,12 +13,14 @@ PLAYLISTS="Autobot Low, Autobot Medium, Partybot, Groovebot, Autobot High, Autob
 #Exclusion list file
 EXC="$(dirname $0)/exc.txt"
 
-#Location to save playlists
-OUTPUTDIR="192.168.0.32"
+#IP address of the remote host to sync to
+IP="192.168.0.32"
 
+#Source of music library files
 SRC="/Volumes/Music/"
 
-DST="root@192.168.0.32:/../KURE/Music/"
+#Destination of music library files
+DST="root@$IP:/../KURE/Music/"
 
 ####################
 ##  SCRIPT START  ##
@@ -34,7 +36,7 @@ echo "" >> "$LOG"
 
 #Check to make sure NAS is active on the network
 if
-/sbin/ping -o -c 3 -t 1 "$OUTPUTDIR"
+/sbin/ping -o -c 3 -t 1 "$IP"
 then
 #If it is,
 echo "Connecting..." >> "$LOG"

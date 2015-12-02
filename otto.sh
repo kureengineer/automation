@@ -1,5 +1,5 @@
 #Log File
-LOG="$(dirname "$0")/autobot.log"
+LOG="$(dirname "$0")/otto.log"
 
 #Location of iTunes Library on Office Computer
 LIBRARY="/Users/kureadmin/Dropbox/Library/iTunes Library.xml"
