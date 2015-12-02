@@ -1,9 +1,3 @@
-#Office iTunes media folder (from the Office perspective) - ESCAPE ALL FORWARD SLASHES
-OFFICE="\/Volumes\/Music\/"
-
-#Studio iTunes media folder (from the Studio perspective) - ESCAPE ALL FORWARD SLASHES
-STUDIO="\/Users\/Shared\/KURETraktor\/Music\/"
-
 #Log File
 LOG="$(dirname "$0")/autobot.log"
 
@@ -30,6 +24,13 @@ DST="autobot@$IP:/Users/Shared/KURETraktor/Music/"
 
 #Location to save playlists
 OUTPUTDIR="/Volumes/Playlists"
+
+#Office iTunes media folder (from the Office perspective) - ESCAPE ALL FORWARD SLASHES
+OFFICE="\/Volumes\/Music\/"
+
+#Studio iTunes media folder (from the Studio perspective) - ESCAPE ALL FORWARD SLASHES
+STUDIO="\/Users\/Shared\/KURETraktor\/Music\/"
+
 
 ####################
 ##  SCRIPT START  ##
