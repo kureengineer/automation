@@ -10,7 +10,7 @@ LOG="$(dirname "$0")/autobot.log"
 #Location of iTunes Library on Office Computer
 LIBRARY="/Users/kureadmin/Dropbox/Library/iTunes Library.xml"
 
-#Location of the itunes Export java app
+#Location of the itunes Export java app (http://www.ericdaugherty.com/dev/itunesexport/)
 APP="/Applications/iTunesExport/itunesexport.jar"
 
 #Playlists to Export, separated by commas

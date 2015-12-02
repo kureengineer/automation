@@ -1,10 +1,14 @@
+#######################
+# Autobot Update Script
+# This script parses through the iTunes library
+
 #Log File
 LOG="$(dirname "$0")/otto.log"
 
 #Location of iTunes Library on Office Computer
 LIBRARY="/Users/kureadmin/Dropbox/Library/iTunes Library.xml"
 
-#Location of the itunes Export java app
+#Location of the itunes Export java app (http://www.ericdaugherty.com/dev/itunesexport/)
 APP="/Applications/iTunesExport/itunesexport.jar"
 
 #Playlists to Export, separated by commas
