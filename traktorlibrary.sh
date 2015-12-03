@@ -1,3 +1,13 @@
+#######################
+# Traktor Library Update Script
+#	This script is run every night to sync the iTunes library local to the office computer over to the DJ Computer. This is done both as a backup
+#	to the office library, as well as to allow Traktor (the DJ program on the DJ computer) to play files from KURE's library without relying on a network share
+#	
+#	This script also exports certain playlists (the priority playlists) managed in iTunes by the Music Directors to show up in Traktor, so DJs can quickly find
+#	high priority and new music.
+#
+#######################
+
 #Log File
 LOG="$(dirname "$0")/autobot.log"
 
