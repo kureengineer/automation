@@ -1,3 +1,13 @@
+#######################
+# NAS Library Update Script
+#	This script is run every night to sync the iTunes library local to the office computer over to the Network Server. This is done both as a backup
+#	to the office library, as well as access to the library via the subsonic server.
+#	
+#	The subsonic server exists to allow DJs to remotely log in and listen to music in KURE's library, to better plan their shows
+#
+#
+#######################
+
 #Log File
 LOG="$(dirname "$0")/naslibrary.log"
 
