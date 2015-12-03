@@ -27,7 +27,7 @@ OUTDIR="/Users/dnhushak/Desktop/Airchecks/"
 OUTDIR="$OUTDIR$(date '+20%y%m%d')/"
 
 #The duration of the recording (in hh:mm:ss format, or simply a numeric seconds format)
-DURATION='1:00'
+DURATION='1:05:00'
 
 ####################
 ##  SCRIPT START  ##
