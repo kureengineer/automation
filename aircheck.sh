@@ -18,8 +18,10 @@ FILENAME="$FILENAME$FILETYPE"
 #The output directory to record to **Keep this as a local drive, not a network drive**
 RECDIR='/Users/dnhushak/Documents/'
 
-#Directory to move the recorded files to
-OUTDIR="/Users/dnhushak/Desktop/Airchecks/$(date '+20%y%m%d')/"
+#Directory to move the recorded files to, presumably a shared drive
+OUTDIR="/Users/dnhushak/Desktop/Airchecks/"
+#Separates the airchecks into folders by days
+OUTDIR="$OUTDIR$(date '+20%y%m%d')/"
 
 #The duration of the recording (in hh:mm:ss format, or simply a numeric seconds format)
 DURATION='1'
@@ -43,4 +45,4 @@ if [[ ! -d "$OUTDIR" ]]; then
 fi
 
 #And move all of the files to said directory
-mv -f "$RECDIR*.$FILETYPE" "$OUTDIR"
+mv -f "$RECDIR$FILENAME" "$OUTDIR"
