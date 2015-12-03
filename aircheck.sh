@@ -27,7 +27,7 @@ OUTDIR="/Users/dnhushak/Desktop/Airchecks/"
 OUTDIR="$OUTDIR$(date '+20%y%m%d')/"
 
 #The duration of the recording (in hh:mm:ss format, or simply a numeric seconds format)
-DURATION='5'
+DURATION='1:00'
 
 ####################
 ##  SCRIPT START  ##
@@ -48,7 +48,9 @@ echo "Recording to $OUTFILE" >> "$LOG"
 #Record the file to the output directory and file, based on the duration
 # -d : use the default sound device for an input stream
 # trim : trim the "file" (in this case a stream) from a starting point to an end point
-sox -e s -d "$OUTFILE" trim 0 $DURATION 2>>"$LOG"
+sox -d "$OUTFILE" trim 0 $DURATION 2>>"$LOG"
+
+#Creates a spectrogram image of the file
 sox "$OUTFILE" -n spectrogram -o "$OUTFILE.png" 2>>"$LOG"
 
 #Check if the desired output directory exists...
