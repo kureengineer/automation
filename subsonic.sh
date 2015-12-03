@@ -1,5 +1,5 @@
 #######################
-# Subsonic
+# Subsonic Playlist Update Script
 #	This script is run every night to update the Subsonic server playlists. The Subsonic server exists to allow DJs to see and listen to new music.
 #
 #	The script parses through the iTunes library, selects the given playlists, and expors those playlists to m3u files. It also changes the file references in the m3u files
@@ -18,7 +18,7 @@ LIBRARY="/Users/kureadmin/Dropbox/Library/iTunes Library.xml"
 APP="/Applications/iTunesExport/itunesexport.jar"
 
 #Playlists to Export, separated by commas
-PLAYLISTS="Subsonic High, Partybot"
+PLAYLISTS="Subsonic High"
 
 #Location to save playlists
 OUTPUTDIR="$(dirname "$0")/Subsonic/"
