@@ -1,3 +1,13 @@
+#######################
+# Subsonic
+#	This script is run every night to update the Subsonic server playlists. The Subsonic server exists to allow DJs to see and listen to new music.
+#
+#	The script parses through the iTunes library, selects the given playlists, and expors those playlists to m3u files. It also changes the file references in the m3u files
+#	to match the file structure of the Subsonic Computer.
+#	As of right now, there is no way to automatically import the m3u playlist into subsonic, so it must be done manually (presumably by the Internal Music Director once a week)
+#
+#######################
+
 #Log File
 LOG="$(dirname "$0")/subsonic.log"
 
