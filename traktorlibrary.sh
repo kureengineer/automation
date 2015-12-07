@@ -91,7 +91,6 @@ eval "$SEDCMD" >> "$LOG"
 
 echo "Playlist Update Complete" >> "$LOG"
 
-
 #Log File Closing
 echo "" >> "$LOG"
 date >> "$LOG"
