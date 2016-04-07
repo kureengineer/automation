@@ -33,7 +33,7 @@
         <relay-password>*******</relay-password>
 
         <!-- Admin logs in with the username given below -->
-        <admin-user>********/admin-user>
+        <admin-user>********</admin-user>
         <admin-password>*********</admin-password>
     </authentication>
 
