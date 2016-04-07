@@ -60,6 +60,7 @@ The Liquidsoap configuration file ```webcastResample.liq``` in the ```/webcast``
     * Restart the computer with the DVD (may have to change BIOS boot options)
     * Install while connected to the internet, following on-screen instructions
     * SSH needs to be enabled as a service, but none of the other ones are necessary
+
 * Update and Upgrade Ubuntu Server
 ```
 sudo apt-get update
@@ -104,9 +105,8 @@ cp ~/automation/webcast/webcastResample.liq ~/
 * Edit `rc.local` to have the liquidsoap script start upon boot
 ```
 sudo nano /etc/rc.local
-```
-    On a line before "exit 0" type:
-```
+
+On a line before "exit 0" type:
 ~/webcastResample.liq &
 ```
 * Reboot the server
