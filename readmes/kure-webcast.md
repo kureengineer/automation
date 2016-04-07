@@ -13,9 +13,10 @@ The audio source(s) for the webcast(s) are sourced from another machine, using a
 Icecast allows for multiple "mount" points, which essentially means multiple simultaneous webcasts. In our case, we have two main webcasts - "KURE Broadcast" and "The Basement." These two mountpoints can be sourced by either the same or two different webcast source computers.
 
 The Icecast configuration file ```icecast.xml``` in the ```/webcast``` folder of this repository has the configuration for our purposes. Following are a few points of note for how this xml file is set up:
--Line 9, ```<clients>300</clients>``` contains the maximum number of client listeners can connect to the Icecast source **To be listed on iTunes Radio, we need a minimum of 300 capable client connections**
--Lines 96 through 120 include information for the two mounts that we use, including name and login information
--Line 114 ```<fallback-mount>/KUREBroadcast</fallback-mount>``` defines a behaviour for The Basement webcast, such that if there is no source computer providing a stream to that mount, icecast will automatiacally route client connections to The Basement webcast to the regular Broadcast. Essentially, if nothing specific is being broadcast to The Basement webcast, then the regular on-air stream is what connected clients will hear
+
+*Line 9, ```<clients>300</clients>``` contains the maximum number of client listeners can connect to the Icecast source **To be listed on iTunes Radio, we need a minimum of 300 capable client connections**
+*Lines 96 through 120 include information for the two mounts that we use, including name and login information
+*Line 114 ```<fallback-mount>/KUREBroadcast</fallback-mount>``` defines a behaviour for The Basement webcast, such that if there is no source computer providing a stream to that mount, icecast will automatiacally route client connections to The Basement webcast to the regular Broadcast. Essentially, if nothing specific is being broadcast to The Basement webcast, then the regular on-air stream is what connected clients will hear
 
 The Liquidsoap configuration file ```webcastResample.liq``` in the ```/webcast``` folder of this repository is the script that runs on startup to downsample the webcast to medium and lower quality.
 
