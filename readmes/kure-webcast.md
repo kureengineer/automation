@@ -87,15 +87,15 @@ The Liquidsoap configuration file ```webcastResample.liq``` in the ```/webcast``
     ```
 7. Add in usernames and passwords on lines 31, 33, 36, 37, 99, 100, 112, and 113 on the home directory `icecast.xml`
 8. Create the `start`, `stop`, and `reboot` commands in the home directory
-    ```
+```
     ln -s ~/start ~/automation/webcast/startwebcast.sh
     ln -s ~/restart ~/automation/webcast/restartwebcast.sh
     ln -s ~/stop ~/automation/webcast/stop.sh
-    ```
+```
 9. Install Liquidsoap
-    ```
+```
     sudo apt-get install liquidsoap
-    ```
+```
 10. Copy the `webcastResample.liq` file from the `webcast/` directory of the repo to the home directory (`~/`)
     ```
     cp ~/automation/webcast/webcastResample.liq ~/
