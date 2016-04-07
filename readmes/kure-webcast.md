@@ -27,8 +27,28 @@ The Liquidsoap configuration file ```webcastResample.liq``` in the ```/webcast``
 * Lines 21 and 22 listen to the regular broadcast, re-encoding them using the ```%mp3(bitrate=192)``` tag to indicate a reencode, and then broadcast the re-encoded stream to a particular mount with the ```mount="KUREBroadcastMQ"``` tag
 * Lines 25 and 26 are the same as 21 and 22, but use the ```basement``` source as an input instead of the ```kureFM``` broadcast
 
-    asdf
-
+```
+    Broadcast Console
+            |
+            V
+    Encoding Machine Soundcard
+            |
+            |
+            V
+    OS Audio Driver (Alsa, CoreAudio, etc.)
+            |
+            |
+            V
+    Encoding Program (Liquidsoap, butt, NiceCast)
+            |
+            |   <----------------------------
+            V                               ^
+    Icecast Server Mountpoint --> Liquidsoap Down-encode Script
+        |||||||||
+        |||||||||
+        VVVVVVVVV
+    Client Connections
+```
 ###Installation
 
 
