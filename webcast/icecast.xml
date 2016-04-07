@@ -107,30 +107,17 @@
     </mount>
 
     <mount type="normal">
-        <mount-name>/KURESportscast</mount-name>
+        <mount-name>/TheBasement</mount-name>
 
         <username>******</username>
         <password>******</password>
 	<fallback-mount>/KUREBroadcast</fallback-mount>
 	<fallback-override>1</fallback-override>
         <max-listeners>300</max-listeners>
-        <stream-name>KURE Sports</stream-name>
-        <stream-url>http://www.kure885.org</stream-url>
-        <genre>Sports</genre>
-    </mount>
-
-    <mount type="normal">
-        <mount-name>/KUREEventscast</mount-name>
-
-        <username>******</username>
-        <password>******</password>
-        <fallback-mount>/KUREBroadcast</fallback-mount>
-        <fallback-override>1</fallback-override>
-        <max-listeners>300</max-listeners>
-        <stream-name>KURE Events</stream-name>
+        <stream-name>The Basement Webcast</stream-name>
         <stream-url>http://www.kure885.org</stream-url>
         <genre>Indie</genre>
-    </mount>    
+    </mount>
 
     <fileserve>1</fileserve>
 
