@@ -85,14 +85,14 @@ sudo chown icecast2 icecast.xml
 * Symlink the config file in the default location to the one in the home directory (this allows us to edit the easily findable one in the home directory instead of having to hunt for it in `/etc` all the time)
 ```
 sudo rm -rf /etc/icecast2/icecast.xml
-ln -s /etc/icecast2/icecast.xml ~/icecast.xml
+ln -s ~/icecast.xml /etc/icecast2/icecast.xml
 ```
 * Add in usernames and passwords on lines 31, 33, 36, 37, 99, 100, 112, and 113 on the home directory `icecast.xml`
 * Create the `start`, `stop`, and `reboot` commands in the home directory
 ```
-ln -s ~/start ~/automation/webcast/startwebcast.sh
-ln -s ~/restart ~/automation/webcast/restartwebcast.sh
-ln -s ~/stop ~/automation/webcast/stop.sh
+ln -s ~/automation/webcast/startwebcast.sh ~/start 
+ln -s ~/automation/webcast/restartwebcast.sh ~/restart
+ln -s ~/automation/webcast/stop.sh ~/stop
 ```
 * Install Liquidsoap
 ```
@@ -109,6 +109,10 @@ sudo nano /etc/rc.local
 
 On a line before "exit 0" type:
 ~/webcastResample.liq &
+```
+* Link this readme file to the home directory
+```
+ln -s ~/automation/readmes/kure-webcast.md ~/README
 ```
 * Reboot the server
 ```
