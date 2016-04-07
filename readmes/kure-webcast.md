@@ -51,7 +51,7 @@ The Liquidsoap configuration file ```webcastResample.liq``` in the ```/webcast``
     Client Connections
 ```
 ###Installation
-1. Start with a fresh installation of the latest version of Ubuntu Server
+* Start with a fresh installation of the latest version of Ubuntu Server
     * Go to http://www.ubuntu.com/download/server
     * Download the latest LTS version of server
     * Burn the ISO to a DVD using Apple OSX's disk utility or other imaging software
@@ -60,56 +60,56 @@ The Liquidsoap configuration file ```webcastResample.liq``` in the ```/webcast``
     * Restart the computer with the DVD (may have to change BIOS boot options)
     * Install while connected to the internet, following on-screen instructions
     * SSH needs to be enabled as a service, but none of the other ones are necessary
-2. Update and Upgrade Ubuntu Server
-    ```
-    sudo apt-get update
-    sudo apt-get upgrade
-    sudo apt-get autoremove
-    ```
-3. Install git and download this repository
-    ```
-    sudo apt-get install git
-    git clone https://github.com/kureengineer/automation.git 
-    ```
-4. Install Icecast
-    ```
-    sudo apt-get install icecast2
-    ```
-5. Copy the ```icecast.xml``` from the ```webcast/``` directory of the repo to the home directory (`~/`), and change ownership to the icecast2 user
-    ```
-    cp ~/automation/webcast/icecast.xml ~/
-    sudo chown icecast2 icecast.xml 
-    ```
-6. Symlink the config file in the default location to the one in the home directory (this allows us to edit the easily findable one in the home directory instead of having to hunt for it in `/etc` all the time)
-    ```
-    sudo rm -rf /etc/icecast2/icecast.xml
-    ln -s /etc/icecast2/icecast.xml ~/icecast.xml
-    ```
-7. Add in usernames and passwords on lines 31, 33, 36, 37, 99, 100, 112, and 113 on the home directory `icecast.xml`
-8. Create the `start`, `stop`, and `reboot` commands in the home directory
+* Update and Upgrade Ubuntu Server
 ```
-    ln -s ~/start ~/automation/webcast/startwebcast.sh
-    ln -s ~/restart ~/automation/webcast/restartwebcast.sh
-    ln -s ~/stop ~/automation/webcast/stop.sh
+sudo apt-get update
+sudo apt-get upgrade
+sudo apt-get autoremove
 ```
-9. Install Liquidsoap
+* Install git and download this repository
 ```
-    sudo apt-get install liquidsoap
+sudo apt-get install git
+git clone https://github.com/kureengineer/automation.git 
 ```
-10. Copy the `webcastResample.liq` file from the `webcast/` directory of the repo to the home directory (`~/`)
-    ```
-    cp ~/automation/webcast/webcastResample.liq ~/
-    ```
-11. Add in username and password on lines 14 and 15 to the file in the home directory
-12. Edit `rc.local` to have the liquidsoap script start upon boot
-    ```
-    sudo nano /etc/rc.local
-    ```
-On a line before "exit 0" type:
-    ```
-    ~/webcastResample.liq &
-    ```
-13. Reboot the server
-    ```
-    sudo reboot now
-    ```
+* Install Icecast
+```
+sudo apt-get install icecast2
+```
+* Copy the ```icecast.xml``` from the ```webcast/``` directory of the repo to the home directory (`~/`), and change ownership to the icecast2 user
+```
+cp ~/automation/webcast/icecast.xml ~/
+sudo chown icecast2 icecast.xml 
+```
+* Symlink the config file in the default location to the one in the home directory (this allows us to edit the easily findable one in the home directory instead of having to hunt for it in `/etc` all the time)
+```
+sudo rm -rf /etc/icecast2/icecast.xml
+ln -s /etc/icecast2/icecast.xml ~/icecast.xml
+```
+* Add in usernames and passwords on lines 31, 33, 36, 37, 99, 100, 112, and 113 on the home directory `icecast.xml`
+* Create the `start`, `stop`, and `reboot` commands in the home directory
+```
+ln -s ~/start ~/automation/webcast/startwebcast.sh
+ln -s ~/restart ~/automation/webcast/restartwebcast.sh
+ln -s ~/stop ~/automation/webcast/stop.sh
+```
+* Install Liquidsoap
+```
+sudo apt-get install liquidsoap
+```
+* Copy the `webcastResample.liq` file from the `webcast/` directory of the repo to the home directory (`~/`)
+```
+cp ~/automation/webcast/webcastResample.liq ~/
+```
+* Add in username and password on lines 14 and 15 to the file in the home directory
+* Edit `rc.local` to have the liquidsoap script start upon boot
+```
+sudo nano /etc/rc.local
+```
+    On a line before "exit 0" type:
+```
+~/webcastResample.liq &
+```
+* Reboot the server
+```
+sudo reboot now
+```
