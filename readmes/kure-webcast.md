@@ -10,6 +10,8 @@ The server additionally runs a liquidsoap script that takes the incoming high-qu
 ###Functional Description
 The audio source(s) for the webcast(s) are sourced from another machine, using an icecast capable application (in our case liquidsoap on Ubuntu Machines and Nicecast on OSX machines). This application takes an incoming audio stream via the computer's hardware soundcard (Alsa on Ubuntu, and CoreAudio on OSX), optionally does some processing on it, then encodes it and sends it to this server. This server's icecast program then takes this stream, and is able to serve it up on-demand to listeners that connect to it via the public url http://kure-webcast.stuorg.iastate.edu:8000. 
 
+By adding the mountpoint to the above url (http://kure-webcast.stuorg.iastate.edu:8000/KUREBroadcast), a client may connect to that particular mountpoint stream. This can be done in most modern browsers, as well as embedded in HTML5 webplayers, or other multimedia plugins.
+
 #####Icecast
 Icecast allows for multiple "mount" points, which essentially means multiple simultaneous webcasts. In our case, we have two main webcasts - "KURE Broadcast" and "The Basement." These two mountpoints can be sourced by either the same or two different webcast source computers.
 
