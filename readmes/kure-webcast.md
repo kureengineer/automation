@@ -75,8 +75,7 @@ sudo apt-get autoremove
 sudo apt-get install git
 git clone https://github.com/kureengineer/automation.git 
 ```
-* Add the official Icecast repository
-Check [here]("https://wiki.xiph.org/Icecast_Server/Installing_latest_version_(official_Xiph_repositories)") to make sure you're using the correct version of Ubuntu
+* Add the official Icecast repository - Check [here](https://wiki.xiph.org/Icecast_Server/Installing_latest_version_(official_Xiph_repositories)) to make sure you're using the correct version of Ubuntu
 ```
 sudo sh -c "echo deb http://download.opensuse.org/repositories/multimedia:/xiph/xUbuntu_14.04/ ./ >>/etc/apt/sources.list.d/icecast.list"
 ```
