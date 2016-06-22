@@ -9,7 +9,8 @@
 #######################
 
 #Log File
-LOG="$(dirname "$0")/autobot.log"
+#LOG="$(dirname "$0")/autobot.log"
+LOG="/Users/autobot/Library/Logs/Automation/autobot.log"
 
 #Location of iTunes Library on Office Computer
 LIBRARY="/Volumes/kureadmin/Dropbox/Library/iTunes Library.xml"

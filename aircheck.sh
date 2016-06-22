@@ -9,7 +9,8 @@
 #######################
 
 #Log File
-LOG="$(dirname "$0")/aircheck.log"
+#LOG="$(dirname "$0")/aircheck.log"
+LOG="/Users/autobot/Library/Logs/Automation/aircheck.log"
 
 #File type to record to
 FILETYPE='mp3'
