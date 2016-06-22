@@ -9,7 +9,8 @@
 #######################
 
 #Log File
-LOG="$(dirname "$0")/autobot.log"
+LOG="$(dirname "$0")/traktor.log"
+LOG="/Users/autobot/Library/Logs/Automation/traktor.log"
 
 #Location of iTunes Library on Office Computer
 LIBRARY="/Users/kureadmin/Dropbox/Library/iTunes Library.xml"
@@ -46,10 +47,12 @@ STUDIO="\/Users\/Shared\/KURETraktor\/Music\/"
 ##  SCRIPT START  ##
 ####################
 
-
-echo "" >> /Applications/Automatic\ Updates/TraktorLib.log
-date >> /Applications/Automatic\ Updates/TraktorLib.log
-echo "" >> /Applications/Automatic\ Updates/TraktorLib.log
+#Log File Formatting
+echo =============================== >> "$LOG" 2>&1
+echo "" >> "$LOG" 2>&1
+echo Traktor Update Starting... >> "$LOG" 2>&1
+date >> "$LOG" 2>&1
+echo "" >> "$LOG" 2>&1
 
 #Check to make sure NAS is active on the network
 if
@@ -57,7 +60,7 @@ if
 then
 
 #If it is,
-echo "Connecting..." >> "$LOG"
+echo "Connecting..." >> "$LOG" 2>&1
 #Then rsync over all the files in the iTunes library folder
 # -a : archive mode
 # -v : verbose mode (lists all files in the log)
@@ -66,34 +69,34 @@ echo "Connecting..." >> "$LOG"
 # -e : indicates using a remote shell (like ssh)
 # --delete : delete files at the destination if they are no longer present at the source (keeps a 1:1 sync)
 # --exclude-from : ignores any files listed in the exclude text file
-rsync -avzr --delete --exclude-from $EXC -e ssh $SRC $DST >> "$LOG"
-echo "Rsync complete" >> "$LOG"
+rsync -avzr --delete --exclude-from $EXC -e ssh $SRC $DST >> "$LOG" 2>&1
+echo "Rsync complete" >> "$LOG" 2>&1
 
 else
-echo "No route to host, canceling." >> "$LOG"
+echo "No route to host, canceling." >> "$LOG" 2>&1
 fi
 
 
 #Export all of the $PLAYLIST playlists, to the playlists directory on the automation machine
-echo "starting playlist export to /Volumes/Playlists" >> "$LOG"
-java -mx1024m -jar $APP -library="$LIBRARY" -outputDir="$OUTPUTDIR" -includePlaylist="$PLAYLISTS" -fileTypes=ALL >> "$LOG"
+echo "starting playlist export to /Volumes/Playlists" >> "$LOG" 2>&1
+java -mx1024m -jar $APP -library="$LIBRARY" -outputDir="$OUTPUTDIR" -includePlaylist="$PLAYLISTS" -fileTypes=ALL >> "$LOG" 2>&1
 
 
 
-echo "Repointing the Playlist to the Studio Library location" >> "$LOG"
+echo "Repointing the Playlist to the Studio Library location" >> "$LOG" 2>&1
 
 #Replace the itunes root music folder with the subsonic root music folder
 #Build the sed command
 SEDCMD="sed -i '' 's/"
 SEDCMD="$SEDCMD$OFFICE/$STUDIO/g' $OUTPUTDIR/*.m3u >> \"LOG\""
 #Execute the sed command
-eval "$SEDCMD" >> "$LOG"
+eval "$SEDCMD" >> "$LOG" 2>&1
 
-echo "Playlist Update Complete" >> "$LOG"
+echo "Playlist Update Complete" >> "$LOG" 2>&1
 
 #Log File Closing
-echo "" >> "$LOG"
-date >> "$LOG"
-echo "Complete" >> "$LOG"
-echo "" >> "$LOG"
+echo "" >> "$LOG" 2>&1
+date >> "$LOG" 2>&1
+echo "Complete" >> "$LOG" 2>&1
+echo "" >> "$LOG" 2>&1
 exit
