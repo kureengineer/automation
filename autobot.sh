@@ -28,25 +28,25 @@ OUTPUTDIR="/Volumes/Automation/New Automation"
 ####################
 
 #Log File Formatting
-echo =============================== >> "$LOG"
-echo "" >> "$LOG"
-echo "Autobot Update Starting..." >> "$LOG"
-date >> "$LOG"
-echo "" >> "$LOG"
+echo =============================== >> "$LOG" 2>&1
+echo "" >> "$LOG" 2>&1
+echo "Autobot Update Starting..." >> "$LOG" 2>&1
+date >> "$LOG" 2>&1
+echo "" >> "$LOG" 2>&1
 
 #Export all of the $PLAYLIST playlists, to the playlists directory on the automation machine
 # -copy=PLAYLIST copies over the files in addition to the playlists, and organizes them into folders based on the playlists
-java -mx1024m -jar $APP -library="$LIBRARY" -outputDir="$OUTPUTDIR" -includePlaylist="$PLAYLISTS" -fileTypes=ALL -copy=PLAYLIST >> "$LOG"
+java -mx1024m -jar $APP -library="$LIBRARY" -outputDir="$OUTPUTDIR" -includePlaylist="$PLAYLISTS" -fileTypes=ALL -copy=PLAYLIST >> "$LOG" 2>&1
 
 #Replace forward slashes (Unix) with backslashes (windows)
-sed -i '' 's/\//\\/g' "$OUTPUTDIR/"*.m3u >> "$LOG"
+sed -i '' 's/\//\\/g' "$OUTPUTDIR/"*.m3u >> "$LOG" 2>&1
 
 # ????
-sed -i "" '1d' "$OUTPUTDIR/"*.m3u >> "$LOG"
+sed -i "" '1d' "$OUTPUTDIR/"*.m3u >> "$LOG" 2>&1
 
 #Log File Closing
-echo "" >> "$LOG"
-date >> "$LOG"
-echo "Complete" >> "$LOG"
-echo "" >> "$LOG"
+echo "" >> "$LOG" 2>&1
+date >> "$LOG" 2>&1
+echo "Complete" >> "$LOG" 2>&1
+echo "" >> "$LOG" 2>&1
 exit
