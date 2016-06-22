@@ -10,7 +10,7 @@
 
 #Log File
 #LOG="$(dirname "$0")/subsonic.log"
-LOG="/Users/autobot/Library/Logs/subsonic.log"
+LOG="/Users/autobot/Library/Logs/Automation/subsonic.log"
 
 #Location of iTunes Library on Office Computer
 LIBRARY="/Users/kureadmin/Dropbox/Library/iTunes Library.xml"
