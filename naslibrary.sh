@@ -9,7 +9,8 @@
 #######################
 
 #Log File
-LOG="$(dirname "$0")/naslibrary.log"
+#LOG="$(dirname "$0")/naslibrary.log"
+LOG="/Users/autobot/Library/Logs/Automation/naslibrary.log"
 
 #Location of iTunes Library on Office Computer
 LIBRARY="/Users/kureadmin/Dropbox/Library/iTunes Library.xml"
@@ -38,18 +39,18 @@ DST="root@$IP:/../KURE/Music/"
 
 
 #Log File Formatting
-echo =============================== >> "$LOG"
-echo "" >> "$LOG"
-echo "NAS Music Library Starting..." >> "$LOG"
-date >> "$LOG"
-echo "" >> "$LOG"
+echo =============================== >> "$LOG" 2>&1
+echo "" >> "$LOG" 2>&1
+echo "NAS Music Library Starting..." >> "$LOG" 2>&1
+date >> "$LOG" 2>&1
+echo "" >> "$LOG" 2>&1
 
 #Check to make sure NAS is active on the network
 if
-/sbin/ping -o -c 3 -t 1 "$IP"
+/sbin/ping -o -c 3 -t 1 "$IP" 2>&1
 then
 #If it is,
-echo "Connecting..." >> "$LOG"
+echo "Connecting..." >> "$LOG" 2>&1
 #Then rsync over all the files in the iTunes library folder
 # -a : archive mode
 # -v : verbose mode (lists all files in the log)
@@ -58,15 +59,15 @@ echo "Connecting..." >> "$LOG"
 # -e : indicates using a remote shell (like ssh)
 # --delete : delete files at the destination if they are no longer present at the source (keeps a 1:1 sync)
 # --exclude-from : ignores any files listed in the exclude text file
-rsync -avzr --delete --exclude-from $EXC -e ssh $SRC $DST >> "$LOG"
+rsync -avzr --delete --exclude-from $EXC -e ssh $SRC $DST >> "$LOG" 2>&1
 
 else
-echo "No route to host, canceling." >> "$LOG"
+echo "No route to host, canceling." >> "$LOG" 2>&1
 fi
 
 #Log File Closing
-echo "" >> "$LOG"
-date >> "$LOG"
-echo "Complete" >> "$LOG"
-echo "" >> "$LOG"
+echo "" >> "$LOG" 2>&1
+date >> "$LOG" 2>&1
+echo "Complete" >> "$LOG" 2>&1
+echo "" >> "$LOG" 2>&1
 exit
