@@ -12,7 +12,7 @@
 LOG="$(dirname "$0")/autobot.log"
 
 #Location of iTunes Library on Office Computer
-LIBRARY="/Users/kureadmin/Dropbox/Library/iTunes Library.xml"
+LIBRARY="/Volumes/kureadmin/Dropbox/Library/iTunes Library.xml"
 
 #Location of the itunes Export java app (http://www.ericdaugherty.com/dev/itunesexport/)
 APP="/Applications/iTunesExport/itunesexport.jar"
@@ -21,7 +21,7 @@ APP="/Applications/iTunesExport/itunesexport.jar"
 PLAYLISTS="Autobot Low, Autobot Medium, Partybot, Groovebot, Autobot High, Autobot Light, DJoftheMonth"
 
 #Location to save playlists
-OUTPUTDIR="/Volumes/Automation 3/New Automation"
+OUTPUTDIR="/Volumes/Automation/New Automation"
 
 ####################
 ##  SCRIPT START  ##
@@ -39,16 +39,10 @@ echo "" >> "$LOG"
 java -mx1024m -jar $APP -library="$LIBRARY" -outputDir="$OUTPUTDIR" -includePlaylist="$PLAYLISTS" -fileTypes=ALL -copy=PLAYLIST >> "$LOG"
 
 #Replace forward slashes (Unix) with backslashes (windows)
-sed -i '' 's/\//\\/g' "$OUTPUTDIR"*.m3u >> "$LOG"
+sed -i '' 's/\//\\/g' "$OUTPUTDIR/"*.m3u >> "$LOG"
 
 # ????
-cd /Volumes/Automation\ \3/New\ \Automation
-sed -i "" '1d' Autobot\ \Low.m3u
-sed -i "" '1d' Autobot\ \Medium.m3u
-sed -i "" '1d' Autobot\ \High.m3u
-sed -i "" '1d' Groovebot.m3u
-sed -i "" '1d' Partybot.m3u
-sed -i "" '1d' DJoftheMonth.m3u
+sed -i "" '1d' "$OUTPUTDIR/"*.m3u >> "$LOG"
 
 #Log File Closing
 echo "" >> "$LOG"

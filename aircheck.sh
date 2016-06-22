@@ -27,48 +27,49 @@ OUTDIR="/Users/autobot/Desktop/Airchecks/"
 OUTDIR="$OUTDIR$(date '+20%y%m%d')/"
 
 #The duration of the recording (in hh:mm:ss format, or simply a numeric seconds format)
-#DURATION='1:05:00'
-DURATION='0:30'
+DURATION='1:10:00'
+#DURATION='0:30'
+
 ####################
 ##  SCRIPT START  ##
 ####################
 
 #Log File Formatting
-echo =============================== >> "$LOG"
-echo "" >> "$LOG"
-echo "Aircheck Recording Starting..." >> "$LOG"
-date >> "$LOG"
-echo "" >> "$LOG"
+echo =============================== >> "$LOG" 2>&1
+echo "" >> "$LOG" 2>&1
+echo "Aircheck Recording Starting..." >> "$LOG" 2>&1
+date >> "$LOG" 2>&1
+echo "" >> "$LOG" 2>&1
 
 #Generate output file, with the directory
 OUTFILE="$RECDIR$FILENAME"
 
-echo "Recording to $OUTFILE" >> "$LOG"
+echo "Recording to $OUTFILE" >> "$LOG" 2>&1
 
 #Record the file to the output directory and file, based on the duration
 # -d : use the default sound device for an input stream
 # trim : trim the "file" (in this case a stream) from a starting point to an end point
-sox -d -c 2 "$OUTFILE" trim 0 $DURATION 2>>"$LOG"
+sox -d -c 2 "$OUTFILE" trim 0 $DURATION >>"$LOG" 2>&1
 
 #Creates a spectrogram image of the file
-sox "$OUTFILE" -n spectrogram -o "$OUTFILE.png" 2>>"$LOG"
+sox "$OUTFILE" -n spectrogram -o "$OUTFILE.png" 2>>"$LOG" 2>&1
 
 #Check if the desired output directory exists...
 if [[ ! -d "$OUTDIR" ]]; then
-	echo "Creating date directory $OUTDIR" >> "$LOG"
+	echo "Creating date directory $OUTDIR" >> "$LOG" 2>&1
 	#If it doesn't, make the directory
-	mkdir "$OUTDIR" >> "$LOG"
+	mkdir -p "$OUTDIR" >> "$LOG" 2>&1
 fi
 
 
 #And move all of the files to said directory
-echo "Moving files" >> "$LOG"
-mv -f "$RECDIR$FILENAME" "$OUTDIR" >> "$LOG"
-mv -f "$RECDIR$FILENAME.png" "$OUTDIR" >> "$LOG"
+echo "Moving files" >> "$LOG" 2>&1
+mv -f "$RECDIR$FILENAME" "$OUTDIR" >> "$LOG" 2>&1
+mv -f "$RECDIR$FILENAME.png" "$OUTDIR" >> "$LOG" 2>&1
 
 #Log File Closing
-echo "" >> "$LOG"
-date >> "$LOG"
-echo "Complete" >> "$LOG"
-echo "" >> "$LOG"
+echo "" >> "$LOG" 2>&1
+date >> "$LOG" 2>&1
+echo "Complete" >> "$LOG" 2>&1
+echo "" >> "$LOG" 2>&1
 exit
