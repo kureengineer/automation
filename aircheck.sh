@@ -28,7 +28,7 @@ OUTDIR="$OUTDIR$(date '+20%y%m%d')/"
 
 #The duration of the recording (in hh:mm:ss format, or simply a numeric seconds format)
 DURATION='1:10:00'
-#DURATION='0:30'
+#DURATION='0:05'
 
 ####################
 ##  SCRIPT START  ##
@@ -49,10 +49,10 @@ echo "Recording to $OUTFILE" >> "$LOG" 2>&1
 #Record the file to the output directory and file, based on the duration
 # -d : use the default sound device for an input stream
 # trim : trim the "file" (in this case a stream) from a starting point to an end point
-sox -d -c 2 "$OUTFILE" trim 0 $DURATION >>"$LOG" 2>&1
+sox -q -d -c 2 "$OUTFILE" trim 0 $DURATION >>"$LOG" 2>&1
 
 #Creates a spectrogram image of the file
-sox "$OUTFILE" -n spectrogram -o "$OUTFILE.png" 2>>"$LOG" 2>&1
+sox "$OUTFILE" -n spectrogram -o "$OUTFILE.png" >>"$LOG" 2>&1
 
 #Check if the desired output directory exists...
 if [[ ! -d "$OUTDIR" ]]; then
