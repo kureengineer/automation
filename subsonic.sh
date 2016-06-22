@@ -9,7 +9,8 @@
 #######################
 
 #Log File
-LOG="$(dirname "$0")/subsonic.log"
+#LOG="$(dirname "$0")/subsonic.log"
+LOG="/Users/autobot/Library/Logs/subsonic.log"
 
 #Location of iTunes Library on Office Computer
 LIBRARY="/Users/kureadmin/Dropbox/Library/iTunes Library.xml"
@@ -34,15 +35,15 @@ SUBSONIC="\\\\\\\\kure-library\\\\KURE\\\\Music\\\\"
 ####################
 
 #Log File Formatting
-echo =============================== >> "$LOG"
-echo "" >> "$LOG"
-echo Subsonic Update Starting... >> "$LOG"
-date >> "$LOG"
-echo "" >> "$LOG"
+echo =============================== >> "$LOG" 2>&1
+echo "" >> "$LOG" 2>&1
+echo Subsonic Update Starting... >> "$LOG" 2>&1
+date >> "$LOG" 2>&1
+echo "" >> "$LOG" 2>&1
 
 
 #Export all of the $PLAYLIST playlists, to the automatic updates directory
-java -mx1024m -jar $APP -library="$LIBRARY" -outputDir="$OUTPUTDIR" -includePlaylist="$PLAYLISTS" -fileTypes=ALL  >> "$LOG"
+java -mx1024m -jar $APP -library="$LIBRARY" -outputDir="$OUTPUTDIR" -includePlaylist="$PLAYLISTS" -fileTypes=ALL  >> "$LOG" 2>&1
 
 
 #Replace the itunes root music folder with the subsonic root music folder
@@ -50,17 +51,17 @@ java -mx1024m -jar $APP -library="$LIBRARY" -outputDir="$OUTPUTDIR" -includePlay
 SEDCMD="sed -i '' 's/"
 SEDCMD="$SEDCMD$ITUNES/$SUBSONIC/g' \"$OUTPUTDIR\"*.m3u >> \"LOG\""
 #Execute the sed command
-eval "$SEDCMD"
+eval "$SEDCMD" 2>&1
 
 #Replace forward slashes (Unix) with backslashes (windows)
-sed -i '' 's/\//\\/g' "$OUTPUTDIR"*.m3u >> "$LOG"
+sed -i '' 's/\//\\/g' "$OUTPUTDIR"*.m3u >> "$LOG" 2>&1
 
 #NEED TO ADD CURL COMMAND TO SEND PLAYLIST TO SUBSONIC
 
 
 #Log File Closing
-echo "" >> "$LOG"
-date >> "$LOG"
-echo "Complete" >> "$LOG"
-echo "" >> "$LOG"
+echo "" >> "$LOG" 2>&1
+date >> "$LOG" 2>&1
+echo "Complete" >> "$LOG" 2>&1
+echo "" >> "$LOG" 2>&1
 exit
