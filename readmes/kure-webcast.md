@@ -75,18 +75,14 @@ sudo apt-get autoremove
 sudo apt-get install git
 git clone https://github.com/kureengineer/automation.git 
 ```
-* Add the official Icecast repository - Check [here](https://wiki.xiph.org/Icecast_Server/Installing_latest_version_(official_Xiph_repositories)) to make sure you're using the correct version of Ubuntu
-```
-sudo sh -c "echo deb http://download.opensuse.org/repositories/multimedia:/xiph/xUbuntu_14.04/ ./ >>/etc/apt/sources.list.d/icecast.list"
-```
-* Install Icecast
+* Install Icecast, and follow the default setup
 ```
 sudo apt-get install icecast2
 ```
-* Copy the ```icecast.xml``` from the ```webcast/``` directory of the repo to the home directory (`~/`), and change ownership to the icecast2 user
+* Copy the ```icecast.xml``` from the ```webcast/``` directory of the repo to the home directory (`~/`), and change ownership to the icecast2 user and the icecast group
 ```
 cp ~/automation/webcast/icecast.xml ~/
-sudo chown icecast2 icecast.xml 
+sudo chown icecast2:icecast icecast.xml 
 ```
 * Symlink the config file in the default location to the one in the home directory (this allows us to edit the easily findable one in the home directory instead of having to hunt for it in `/etc` all the time)
 ```
@@ -96,9 +92,9 @@ ln -s ~/icecast.xml /etc/icecast2/icecast.xml
 * Add in usernames and passwords on lines 31, 33, 36, 37, 99, 100, 112, and 113 on the home directory `icecast.xml`
 * Create the `start`, `stop`, and `reboot` commands in the home directory
 ```
-ln -s ~/automation/webcast/startwebcast.sh ~/start 
-ln -s ~/automation/webcast/restartwebcast.sh ~/restart
-ln -s ~/automation/webcast/stop.sh ~/stop
+ln -s ~/automation/webcast/startwebcast.sh ~/startcast
+ln -s ~/automation/webcast/restartwebcast.sh ~/restartcast
+ln -s ~/automation/webcast/stop.sh ~/stopcast
 ```
 * Install Liquidsoap
 ```
