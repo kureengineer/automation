@@ -106,11 +106,11 @@ cp ~/automation/webcast/webcastResample.liq ~/
 sudo chmod +x webcastResample.liq 
 ```
 * Add in username and password on lines 14 and 15 to the file in the home directory
-* Edit `rc.local` to have the liquidsoap script start upon boot
+* Edit `crontab` to have the liquidsoap script start upon boot
 ```
-sudo nano /etc/rc.local
+crontab -e
 
-On a line before "exit 0" type:
+After the comments, type:
 ~/webcastResample.liq &
 ```
 * Link this readme file to the home directory
