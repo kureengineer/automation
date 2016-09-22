@@ -87,7 +87,8 @@ sudo chown icecast2:icecast icecast.xml
 * Symlink the config file in the default location to the one in the home directory (this allows us to edit the easily findable one in the home directory instead of having to hunt for it in `/etc` all the time)
 ```
 sudo rm -rf /etc/icecast2/icecast.xml
-ln -s ~/icecast.xml /etc/icecast2/icecast.xml
+sudo ln -s ~/icecast.xml /etc/icecast2/icecast.xml
+sudo chown icecast2:icecast /etc/icecast2/icecast.xml 
 ```
 * Add in usernames and passwords on lines 31, 33, 36, 37, 99, 100, 112, and 113 on the home directory `icecast.xml`
 * Create the `start`, `stop`, and `reboot` commands in the home directory
