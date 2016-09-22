@@ -57,10 +57,9 @@ The Liquidsoap configuration file ```webcastResample.liq``` in the ```/webcast``
 * Start with a fresh installation of the latest version of Ubuntu Server
     * Go to http://www.ubuntu.com/download/server
     * Download the latest LTS version of server
-    * Burn the ISO to a DVD using Apple OSX's disk utility or other imaging software
-    * **The Poweredge we currently use won't boot from the internal drive - had to use a USB drive to boot it**
-    * Boot the computer and put the DVD in
-    * Restart the computer with the DVD (may have to change BIOS boot options)
+    * Burn the ISO to a CD using Apple OSX's disk utility or other imaging software (be sure you burn the contents of the .iso, and not just the .iso file itself)
+    * Boot the computer and put the CD in
+    * Restart the computer with the CD (may have to change BIOS boot options)
     * Install while connected to the internet, following on-screen instructions
     * SSH needs to be enabled as a service, but none of the other ones are necessary
 
