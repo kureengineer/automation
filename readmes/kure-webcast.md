@@ -101,9 +101,10 @@ ln -s ~/automation/webcast/stop.sh ~/stopcast
 ```
 sudo apt-get install liquidsoap
 ```
-* Copy the `webcastResample.liq` file from the `webcast/` directory of the repo to the home directory (`~/`)
+* Copy the `webcastResample.liq` file from the `webcast/` directory of the repo to the home directory (`~/`), and make it executable
 ```
 cp ~/automation/webcast/webcastResample.liq ~/
+sudo chmod +x webcastResample.liq 
 ```
 * Add in username and password on lines 14 and 15 to the file in the home directory
 * Edit `rc.local` to have the liquidsoap script start upon boot
