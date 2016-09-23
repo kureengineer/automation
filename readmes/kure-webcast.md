@@ -117,6 +117,10 @@ After the comments, type:
 ```
 ln -s ~/automation/readmes/kure-webcast.md ~/README
 ```
+* Create a public/private key pair so other KURE computers can log in with automated scripts
+```
+ssh-keygen -t rsa
+```
 * Reboot the server
 ```
 sudo reboot now
