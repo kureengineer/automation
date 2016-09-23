@@ -32,10 +32,10 @@ brew install git
 git clone https://github.com/kureengineer/automation.git 
 ```
 * Install and configure Nicecast
-** Go to https://www.rogueamoeba.com/nicecast/download.php
-** Unzip the file and place the unzipped Nicecast Applications in the OSX ```/Applications``` folder
-** Open Nicecast, and select "Nicecast > License" from the menu
-** Enter the user and KURE license key (as listed in the "KURE Technical Documentation" spreadsheet) to license Nicecast
-** Open up preferences, either by selecting "Nicecast > Preferences" from the menu, or by typing "Command + ,"
-** Be sure "Start Broadcast at Launch" and "Check Automatically" are *checked*
-** Be sure "Display Listener Badge," and "Animated" are *unchecked*
+  * Go to https://www.rogueamoeba.com/nicecast/download.php
+  * Unzip the file and place the unzipped Nicecast Applications in the OSX ```/Applications``` folder
+  * Open Nicecast, and select "Nicecast > License" from the menu
+  * Enter the user and KURE license key (as listed in the "KURE Technical Documentation" spreadsheet) to license Nicecast
+  * Open up preferences, either by selecting "Nicecast > Preferences" from the menu, or by typing "Command + ,"
+  * Be sure "Start Broadcast at Launch" and "Check Automatically" are *checked*
+  * Be sure "Display Listener Badge," and "Animated" are *unchecked*
