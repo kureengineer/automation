@@ -94,7 +94,7 @@ sudo chown icecast2:icecast /etc/icecast2/icecast.xml
 ```
 ln -s ~/automation/webcast/startwebcast.sh ~/startcast
 ln -s ~/automation/webcast/restartwebcast.sh ~/restartcast
-ln -s ~/automation/webcast/stop.sh ~/stopcast
+ln -s ~/automation/webcast/stopwebcast.sh ~/stopcast
 ```
 * Install Liquidsoap
 ```
