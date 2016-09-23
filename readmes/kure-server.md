@@ -68,5 +68,14 @@ git clone https://github.com/kureengineer/automation.git
   * Set up server connection settings
      + Open up server settings, either by selecting "Window > Show Server" or typing "Command + 2"
      + Make sure the list of servers tab is open - if it is not, click on the tab icon on the top right of the server window
-     + ![Server Settings](https://github.com/kureengineer/automation/blob/master/readmes/images/serversettings.png?raw=true "Nicecast Server Settings")
+     + Fill in the following information in the fields:
+       - *Name:* "KURE Broadcast"
+       - *Server Type:* "Icecast 2"
+       - *Account:* Whatever your account is for your icecast server mount
+       - *Password:* Whatever your password is for your icecast server mount
+       - *Address:* ```kure-webcast.stuorg.iastate.edu```
+       - *Port:* "8000"
+       - *Mount Point:* "/KUREBroadcast" - **note the leading slash**
+       - *Public URL:* Leave as "Automatic"
+ ![Server Settings](https://github.com/kureengineer/automation/blob/master/readmes/images/serversettings.png?raw=true "Nicecast Server Settings")
 
