@@ -36,6 +36,10 @@ OSX Server provides VPN services, which allows any client with internet access t
 brew install git
 git clone https://github.com/kureengineer/automation.git 
 ```
+* Install SoX
+```
+brew install sox
+```
 * Install and configure Nicecast
   * Go to https://www.rogueamoeba.com/nicecast/download.php
   * Unzip the file and place the unzipped Nicecast application in the OSX ```/Applications``` folder
