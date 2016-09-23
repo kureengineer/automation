@@ -20,6 +20,11 @@ Additional "ad hoc" connections are assigned to a non-static IP pool in the same
 #####VPN
 OSX Server provides VPN services, which allows any client with internet access to be able to access the secured internal KURE network from anywhere.
 
+#####Dante Virtual Soundcard
+
+#####Webcast Sourcing
+
+#####Airchecks Recording
 
 ###Installation
 * Install homebrew
@@ -33,9 +38,35 @@ git clone https://github.com/kureengineer/automation.git
 ```
 * Install and configure Nicecast
   * Go to https://www.rogueamoeba.com/nicecast/download.php
-  * Unzip the file and place the unzipped Nicecast Applications in the OSX ```/Applications``` folder
+  * Unzip the file and place the unzipped Nicecast application in the OSX ```/Applications``` folder
   * Open Nicecast, and select "Nicecast > License" from the menu
   * Enter the user and KURE license key (as listed in the "KURE Technical Documentation" spreadsheet) to license Nicecast
   * Open up preferences, either by selecting "Nicecast > Preferences" from the menu, or by typing "Command + ,"
   * Be sure "Start Broadcast at Launch" and "Check Automatically" are *checked*
   * Be sure "Display Listener Badge," and "Animated" are *unchecked*
+  * Set up Audio Settings
+   * In the main Nicecast Window, select the "Source" tab
+   * In the first dropdown, select "*Audio Device*"
+   * In the "Select" dropdown, select "*Dante Virtual Soundcard*"
+   * Click on the "Advanced" button
+   * Under "Input Device Settings," select "*3*" and "*4*" for "Left Channel" and "Right Channel," respectively
+   * Click on the "Quality" tab
+   * Select *320 kbps* for "Bitrate"
+   * Select *44.100 Khz* for "Sample Rate"
+   * Select *Stereo* for "Channels"
+   * Leave the "CPU Usage" slider at its default value
+  * Set up Metadata
+   * Select the "Info" tab
+   * Fill in the following information in the fields:
+    * *Name:* "88.5 KURE Ames Alternative"
+    * *URL:* "http://kure885.org"
+    * *Genre:* "College"
+    * *AIM:* "kuredj"
+    * *Description:* "KURE is a volunteer student run radio station servicing alternative music, news, and cyclone sports to Iowa State University and the Ames Community."
+   * Select the "Titles" tab
+   * Make sure "Artist," "Album," and "Title" are all *checked*
+  * Set up server connection settings
+   * Open up server settings, either by selecting "Window > Show Server" or typing "Command + 2"
+   * Make sure the list of servers tab is open - if it is not, click on the tab icon on the top right of the server window
+   * ![Server Settings](/images/serversettings.png?raw=true "Nicecast Server Settings")
+
