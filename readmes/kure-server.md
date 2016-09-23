@@ -26,8 +26,9 @@ OSX Server provides VPN services, which allows any client with internet access t
 
 #####Airchecks Recording
 
-###Installation
-* Install homebrew
+#Installation
+### Automation Repository
+* Install Homebrew
 ```
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ```
@@ -36,6 +37,8 @@ OSX Server provides VPN services, which allows any client with internet access t
 brew install git
 git clone https://github.com/kureengineer/automation.git ~/Documents/Automation
 ```
+
+### Airchecks Script
 * Install SoX
 ```
 brew install sox
@@ -60,7 +63,8 @@ PATH = /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 55      *       *       *       *       /bin/sh /Users/autobot/Documents/Automation/aircheck.sh
 ```
    + Type **escape**, then **:wq**, then **enter**
-* Install and configure Nicecast
+
+### Nicecast
   * Go to https://www.rogueamoeba.com/nicecast/download.php
   * Unzip the file and place the unzipped Nicecast application in the OSX ```/Applications``` folder
   * Open Nicecast, and select **Nicecast > License** from the menu
