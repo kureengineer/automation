@@ -68,5 +68,5 @@ git clone https://github.com/kureengineer/automation.git
   * Set up server connection settings
    * Open up server settings, either by selecting "Window > Show Server" or typing "Command + 2"
    * Make sure the list of servers tab is open - if it is not, click on the tab icon on the top right of the server window
-   * ![Server Settings](/images/serversettings.png?raw=true "Nicecast Server Settings")
+   * ![Server Settings](https://github.com/kureengineer/automation/blob/master/readmes/images/serversettings.png?raw=true "Nicecast Server Settings")
 
