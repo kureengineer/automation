@@ -64,7 +64,7 @@ git clone https://github.com/kureengineer/automation.git
        - *AIM:* "kuredj"
        - *Description:* "KURE is a volunteer student run radio station servicing alternative music, news, and cyclone sports to Iowa State University and the Ames Community."
      + Select the "Titles" tab
-     + Make sure "Artist," "Album," and "Title" are all *checked*
+     + Make sure "Artist," "Album," and "Title" are all **checked**
   * Set up server connection settings
      + Open up server settings, either by selecting "Window > Show Server" or typing "Command + 2"
      + Make sure the list of servers tab is open - if it is not, click on the tab icon on the top right of the server window
@@ -77,5 +77,7 @@ git clone https://github.com/kureengineer/automation.git
        - *Port:* "8000"
        - *Mount Point:* "/KUREBroadcast" - **note the leading slash**
        - *Public URL:* Leave as "Automatic"
- ![Server Settings](https://github.com/kureengineer/automation/blob/master/readmes/images/serversettings.png?raw=true "Nicecast Server Settings")
+     + In the "Servers" drawer, be sure the new one you just created is selected 
+     + ![Server Settings](https://github.com/kureengineer/automation/blob/master/readmes/images/serversettings.png?raw=true "Nicecast Server Settings")
+  * Click "Start Broadcast" and let it roll
 
