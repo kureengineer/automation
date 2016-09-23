@@ -89,8 +89,8 @@ sudo rm -rf /etc/icecast2/icecast.xml
 sudo ln -s ~/icecast.xml /etc/icecast2/icecast.xml
 sudo chown icecast2:icecast /etc/icecast2/icecast.xml 
 ```
-* Add in usernames and passwords on lines 31, 33, 36, 37, 99, 100, 112, and 113 on the home directory `icecast.xml`
-* Create the `start`, `stop`, and `reboot` commands in the home directory
+* Add in usernames and passwords on lines 38, 40, 43, 44, 134, 135, 147, and 148 on the home directory `icecast.xml`
+* Create the `startcast`, `stopcast`, and `rebootcast` commands in the home directory
 ```
 ln -s ~/automation/webcast/startwebcast.sh ~/startcast
 ln -s ~/automation/webcast/restartwebcast.sh ~/restartcast
