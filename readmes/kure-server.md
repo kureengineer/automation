@@ -34,12 +34,32 @@ OSX Server provides VPN services, which allows any client with internet access t
 * Install git and download this repository
 ```
 brew install git
-git clone https://github.com/kureengineer/automation.git 
+git clone https://github.com/kureengineer/automation.git ~/Documents/Automation
 ```
 * Install SoX
 ```
 brew install sox
 ```
+* Install and configure the airchecks recording script
+  + Copy the airchecks script to a working location, and make it executable
+```
+cp ~/Documents/Automation/airchecks.sh ~/Documents/airchecks.sh
+sudo chmod +x ~/Documents/airchecks.sh
+```
+   + Open up the airchecks script and fill in specific data:
+    - **Line 12**: The location to write the log to
+    - **Line 22**: The directory that a recording is temporarily stored to while it is being recorded
+    - **Line 25**: The directory in which to place all recordings once they are completed
+   + Schedule the airchecks script to start 5 minutes before the start of the hour:
+```
+crontab -e
+```
+   + Type **i** to enter insert mode, and type the following two lines into the crontab:
+```
+PATH = /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+55      *       *       *       *       /bin/sh /Users/autobot/Documents/Automation/aircheck.sh
+```
+   + Type **escape**, then **:wq**, then **enter**
 * Install and configure Nicecast
   * Go to https://www.rogueamoeba.com/nicecast/download.php
   * Unzip the file and place the unzipped Nicecast application in the OSX ```/Applications``` folder
