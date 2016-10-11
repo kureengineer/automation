@@ -7,6 +7,13 @@ This is the Office Computer for KURE. It functions as the main computer for word
 
 #Installation
 ### General Items
+* Install Dante Controller
+  + Go to http://audinate.com and log in with the Engineer's credentials
+  + Navigate to "Products > Dante Controller"
+  + Select the matching version of OS X from the dropdown menu
+  + Click the link to download the .dmg file
+  + Mount the .dmg file by double clicking it in the Downloads folder
+  + Double click the .pkg file and follow the on screen prompts to install Dante Controller
 * Install Homebrew
 ```
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
