@@ -13,6 +13,7 @@ This is the Office Computer for KURE. It functions as the main computer for word
 + Click the link to download the .dmg file
 + Mount the .dmg file by double clicking it in the Downloads folder
 + Double click the .pkg file and follow the on screen prompts to install Dante Controller
+
 ### XLD
 + Go to http://tmkk.undo.jp/xld/index_e.html
 + Scroll to the "Downloads" section of the page
@@ -30,6 +31,8 @@ This is the Office Computer for KURE. It functions as the main computer for word
   - **Encoding Mode:** "CBR"
   - **Overall Quality:** "High (-q 2)"
   - **CBR (equivalent to -b n):** "320 kbps"
+  
+  
 ### iTunes Setup
 + Open iTunes, and agree to all of the terms and conditions
 + Open up **Preferences** (Command + ,)
