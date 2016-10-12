@@ -14,6 +14,16 @@ This is the Office Computer for KURE. It functions as the main computer for word
   + Click the link to download the .dmg file
   + Mount the .dmg file by double clicking it in the Downloads folder
   + Double click the .pkg file and follow the on screen prompts to install Dante Controller
+* Install XLD
+  + Go to http://tmkk.undo.jp/xld/index_e.html
+  + Scroll to the "Downloads" section of the page
+  + Click the link to download the .dmg file
+  + Mount the .dmg file by double clicking it in the Downloads folder
+  + Drag the XLD app from the .dmg file into the /Applications folder
+  + Drag the XLD app from the /Applications folder to the dock
+  + Open a new Finder window (Command + N)
+  + Open the "Go to folder" prompt (Command + Shift + G), and type in /usr/local/bin/
+  + Drag the xld executable from the "CLI" folder in the .dmg into the /usr/local/bin/ window (this makes XLD available as a command line interface)
 * Install Homebrew
 ```
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
