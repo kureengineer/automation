@@ -6,6 +6,22 @@ This is the Office Computer for KURE. It functions as the main computer for word
 #####iTunes Library Syncing
 
 #Installation
+### OS X
++ Install the latest version of OS X
++ Open System Preferences
++ In **Mouse**, deselect "Scroll Direction: Natural"
++ In **Sharing**, check "Screen Sharing," "Printer Sharing," and "Remote Login." Also change the **Computer Name** to KURE Office
++ Download UnRarX here: http://www.unrarx.com and move the app to the /Applications folder
++ Download a KURE logo image and set it to the desktop background image
++ Open up the terminal and execute the following commands to set up RSA public and private key pairs:
+```
+ssh-keygen -t rsa
+cat ~/.ssh/id_rsa.pub | ssh autobot@192.168.0.1 'cat >> ~/.ssh/authorized_keys'
+cat ~/.ssh/id_rsa.pub | ssh autobot@192.168.0.11 'cat >> ~/.ssh/authorized_keys'
+cat ~/.ssh/id_rsa.pub | ssh autobot@192.168.0.22 'cat >> ~/.ssh/authorized_keys'
+cat ~/.ssh/id_rsa.pub | ssh root@192.168.0.32 'cat >> ~/.ssh/authorized_keys'
+```
+
 ### Dante Controller
 + Go to http://audinate.com and log in with the Engineer's credentials
 + Navigate to "Products > Dante Controller"
@@ -31,7 +47,8 @@ This is the Office Computer for KURE. It functions as the main computer for word
   - **Encoding Mode:** "CBR"
   - **Overall Quality:** "High (-q 2)"
   - **CBR (equivalent to -b n):** "320 kbps"
-  
++ Select **Profile > Save Current Setting As...**, type "KURE," and click OK
+
   
 ### iTunes Setup
 + Open iTunes, and agree to all of the terms and conditions
@@ -47,6 +64,13 @@ This is the Office Computer for KURE. It functions as the main computer for word
   - Click OK to both MP3 Encoder and Import Settings windows
 + In the **Sharing** tab, check "Share my library on my local network"
 + In the **Advanced** tab, check "Share iTunes Library XML with other applications"
+
+### iTunes Export
+* Go to http://www.ericdaugherty.com/dev/itunesexport/#Download
+* Download the *Console Application*
+* Move the downloaded folder to the /Applications folder, and rename it "iTunes Export"
+
+### Homebrew and Git
 * Install Homebrew
 ```
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
