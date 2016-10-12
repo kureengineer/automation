@@ -24,6 +24,20 @@ This is the Office Computer for KURE. It functions as the main computer for word
   + Open a new Finder window (Command + N)
   + Open the "Go to folder" prompt (Command + Shift + G), and type in /usr/local/bin/
   + Drag the xld executable from the "CLI" folder in the .dmg into the /usr/local/bin/ window (this makes XLD available as a command line interface)
+* Set up iTunes
+  + Open iTunes, and agree to all of the terms and conditions
+  + Open up **Preferences** (Command + ,)
+  + In the **General** tab:
+    - Uncheck "Show Apple Music Features
+    - Check "Show Star Ratings"
+    - Uncheck "Notifications when song changes"
+    - Click on "Import Settings"
+    - Select "Import Using: MP3 Encoder"
+    - Select "Custom" for setting
+    - Select "320 kbps" for "Stereo Bit Rate"
+    - Click OK to both MP3 Encoder and Import Settings windows
+  + In the **Sharing** tab, check "Share my library on my local network"
+  + In the **Advanced** tab, check "Share iTunes Library XML with other applications"
 * Install Homebrew
 ```
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
