@@ -161,10 +161,22 @@
         <password>********</password>
         <hidden>0</hidden>
 	<max-listeners>300</max-listeners>
-        <fallback-mount>/KUREBroadcast</fallback-mount>
-        <fallback-override>1</fallback-override>
         <stream-name>ISU TV</stream-name>
         <stream-url>http://www.isutv.stuorg.iastate.edu</stream-url>
+        <genre>Indie</genre>
+    </mount>
+	
+    <mount type="normal">
+        <mount-name>/KURESports</mount-name>
+
+        <username>********</username>
+        <password>********</password>
+        <hidden>0</hidden>
+	<max-listeners>300</max-listeners>
+        <fallback-mount>/KUREBroadcast</fallback-mount>
+        <fallback-override>1</fallback-override>
+        <stream-name>KURE Sports</stream-name>
+        <stream-url>sports.kure885.org</stream-url>
         <genre>Indie</genre>
     </mount>
 
