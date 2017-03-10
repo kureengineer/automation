@@ -25,13 +25,13 @@ PLAYLISTS="Autobot Low, Autobot Medium, Partybot, Groovebot, Autobot High, Autob
 EXC="$(dirname $0)/exc.txt"
 
 #IP address of the remote host to sync to
-IP="192.168.0.32"
+IP="192.168.0.1"
 
 #Source of music library files
 SRC="/Users/autobot/Music/iTunes/iTunes Media/Music/"
 
 #Destination of music library files
-DST="root@$IP:/../KURE/Music/"
+DST="autobot@$IP:/../../Volumes/Library/"
 
 ####################
 ##  SCRIPT START  ##
@@ -47,7 +47,7 @@ echo "" >> "$LOG" 2>&1
 
 #Check to make sure NAS is active on the network
 if
-/sbin/ping -o -c 3 -t 1 "$IP" 2>&1
+/sbin/ping -o -c 3 -t 1 "$IP" >> "$LOG" 2>&1
 then
 #If it is,
 echo "Connecting..." >> "$LOG" 2>&1
