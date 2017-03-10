@@ -57,10 +57,9 @@ The Liquidsoap configuration file ```webcastResample.liq``` in the ```/webcast``
 * Start with a fresh installation of the latest version of Ubuntu Server
     * Go to http://www.ubuntu.com/download/server
     * Download the latest LTS version of server
-    * Burn the ISO to a DVD using Apple OSX's disk utility or other imaging software
-    * **The Poweredge we currently use won't boot from the internal drive - had to use a USB drive to boot it**
-    * Boot the computer and put the DVD in
-    * Restart the computer with the DVD (may have to change BIOS boot options)
+    * Burn the ISO to a CD using Apple OSX's disk utility or other imaging software (be sure you burn the contents of the .iso, and not just the .iso file itself)
+    * Boot the computer and put the CD in
+    * Restart the computer with the CD (may have to change BIOS boot options)
     * Install while connected to the internet, following on-screen instructions
     * SSH needs to be enabled as a service, but none of the other ones are necessary
 
@@ -75,50 +74,52 @@ sudo apt-get autoremove
 sudo apt-get install git
 git clone https://github.com/kureengineer/automation.git 
 ```
-* Add the official Icecast repository - Check [here](https://wiki.xiph.org/Icecast_Server/Installing_latest_version_(official_Xiph_repositories)) to make sure you're using the correct version of Ubuntu
-```
-sudo sh -c "echo deb http://download.opensuse.org/repositories/multimedia:/xiph/xUbuntu_14.04/ ./ >>/etc/apt/sources.list.d/icecast.list"
-```
-* Install Icecast
+* Install Icecast, and follow the default setup
 ```
 sudo apt-get install icecast2
 ```
-* Copy the ```icecast.xml``` from the ```webcast/``` directory of the repo to the home directory (`~/`), and change ownership to the icecast2 user
+* Copy the ```icecast.xml``` from the ```webcast/``` directory of the repo to the home directory (`~/`), and change ownership to the icecast2 user and the icecast group
 ```
 cp ~/automation/webcast/icecast.xml ~/
-sudo chown icecast2 icecast.xml 
+sudo chown icecast2:icecast icecast.xml 
 ```
 * Symlink the config file in the default location to the one in the home directory (this allows us to edit the easily findable one in the home directory instead of having to hunt for it in `/etc` all the time)
 ```
 sudo rm -rf /etc/icecast2/icecast.xml
-ln -s ~/icecast.xml /etc/icecast2/icecast.xml
+sudo ln -s ~/icecast.xml /etc/icecast2/icecast.xml
+sudo chown icecast2:icecast /etc/icecast2/icecast.xml 
 ```
-* Add in usernames and passwords on lines 31, 33, 36, 37, 99, 100, 112, and 113 on the home directory `icecast.xml`
-* Create the `start`, `stop`, and `reboot` commands in the home directory
+* Add in usernames and passwords on lines 38, 40, 43, 44, 134, 135, 147, 148, 160, 161, 172, and 173 on the home directory `icecast.xml`
+* Create the `startcast`, `stopcast`, and `rebootcast` commands in the home directory
 ```
-ln -s ~/automation/webcast/startwebcast.sh ~/start 
-ln -s ~/automation/webcast/restartwebcast.sh ~/restart
-ln -s ~/automation/webcast/stop.sh ~/stop
+ln -s ~/automation/webcast/startwebcast.sh ~/startcast
+ln -s ~/automation/webcast/restartwebcast.sh ~/restartcast
+ln -s ~/automation/webcast/stopwebcast.sh ~/stopcast
 ```
 * Install Liquidsoap
 ```
 sudo apt-get install liquidsoap
 ```
-* Copy the `webcastResample.liq` file from the `webcast/` directory of the repo to the home directory (`~/`)
+* Copy the `webcastResample.liq` file from the `webcast/` directory of the repo to the home directory (`~/`), and make it executable
 ```
 cp ~/automation/webcast/webcastResample.liq ~/
+sudo chmod +x webcastResample.liq 
 ```
 * Add in username and password on lines 14 and 15 to the file in the home directory
-* Edit `rc.local` to have the liquidsoap script start upon boot
+* Edit `crontab` to have the liquidsoap script start upon boot
 ```
-sudo nano /etc/rc.local
+crontab -e
 
-On a line before "exit 0" type:
+After the comments, type:
 ~/webcastResample.liq &
 ```
 * Link this readme file to the home directory
 ```
 ln -s ~/automation/readmes/kure-webcast.md ~/README
+```
+* Create a public/private key pair so other KURE computers can log in with automated scripts
+```
+ssh-keygen -t rsa
 ```
 * Reboot the server
 ```

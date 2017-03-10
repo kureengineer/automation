@@ -9,17 +9,17 @@
 #######################
 
 #Log File
-LOG="$(dirname "$0")/traktor.log"
+#LOG="$(dirname "$0")/traktor.log"
 LOG="/Users/autobot/Library/Logs/Automation/traktor.log"
 
 #Location of iTunes Library on Office Computer
-LIBRARY="/Users/kureadmin/Dropbox/Library/iTunes Library.xml"
+LIBRARY="/Users/autobot/Music/iTunes/iTunes Music Library.xml"
 
 #Location of the itunes Export java app (http://www.ericdaugherty.com/dev/itunesexport/)
 APP="/Applications/iTunesExport/itunesexport.jar"
 
 #Playlists to Export, separated by commas
-PLAYLISTS="HIGH PRIORITY, DJoftheMonth"
+PLAYLISTS="HIGH PRIORITY"
 
 #Exclusion list file
 EXC="$(dirname $0)/exc.txt"
@@ -28,10 +28,10 @@ EXC="$(dirname $0)/exc.txt"
 IP="192.168.0.11"
 
 #Source of music library files
-SRC="/Volumes/Music/"
+SRC="/Users/autobot/Music/iTunes/iTunes Media/Music/"
 
 #Destination of music library files
-DST="autobot@$IP:/Users/Shared/KURETraktor/Music/"
+DST="autobot@$IP:/Users/Shared/Music/"
 
 #Location to save playlists
 OUTPUTDIR="/Volumes/Playlists"
@@ -69,7 +69,7 @@ echo "Connecting..." >> "$LOG" 2>&1
 # -e : indicates using a remote shell (like ssh)
 # --delete : delete files at the destination if they are no longer present at the source (keeps a 1:1 sync)
 # --exclude-from : ignores any files listed in the exclude text file
-rsync -avzr --delete --exclude-from $EXC -e ssh $SRC $DST >> "$LOG" 2>&1
+rsync -avzr --delete --exclude-from $EXC -e ssh "$SRC" "$DST" >> "$LOG" 2>&1
 echo "Rsync complete" >> "$LOG" 2>&1
 
 else

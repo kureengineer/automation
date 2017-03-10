@@ -19,10 +19,10 @@ kureUser="********"
 kurePassword="********"
 
 # KURE FM Webcast MQ/LQ Stream Re-encodes
-output.icecast(%mp3(bitrate=192),id="KURE MQ",name="88.5 KURE Medium Quality",url=url,genre=genre,description=description,host=kureHost,port=kurePort,user=kureUser,mount="KUREBroadcastMQ",password=kurePa$
-output.icecast(%mp3(bitrate=64),id="KURE LQ",name="88.5 KURE Low Quality",url=url,genre=genre,description=description,host=kureHost,port=kurePort,user=kureUser,mount="KUREBroadcastLQ",password=kurePasswo$
+output.icecast(%mp3(bitrate=192),id="KURE MQ",name="88.5 KURE Medium Quality",url=url,genre=genre,description=description,host=kureHost,port=kurePort,user=kureUser,mount="KUREBroadcastMQ",password=kurePassword,fallible=true,kureFM)
+output.icecast(%mp3(bitrate=64),id="KURE LQ",name="88.5 KURE Low Quality",url=url,genre=genre,description=description,host=kureHost,port=kurePort,user=kureUser,mount="KUREBroadcastLQ",password=kurePassword,fallible=true,kureFM)
 
 # The Basement MQ/LQ Stream Re-encodes
-output.icecast(%mp3(bitrate=192),id="The Basement MQ",name="The Basement MQ",url=url,genre=genre,description=description,host=kureHost,port=kurePort,user=kureUser,mount="TheBasementMQ",password=kurePassw$
-output.icecast(%mp3(bitrate=64),id="The Basement LQ",name="The Basement LQ",url=url,genre=genre,description=description,host=kureHost,port=kurePort,user=kureUser,mount="TheBasementLQ",password=kurePasswo$
+output.icecast(%mp3(bitrate=192),id="The Basement MQ",name="The Basement MQ",url=url,genre=genre,description=description,host=kureHost,port=kurePort,user=kureUser,mount="TheBasementMQ",password=kurePassword,fallible=true,basement)
+output.icecast(%mp3(bitrate=64),id="The Basement LQ",name="The Basement LQ",url=url,genre=genre,description=description,host=kureHost,port=kurePort,user=kureUser,mount="TheBasementLQ",password=kurePassword,fallible=true,basement)
 
