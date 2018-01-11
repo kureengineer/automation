@@ -9,21 +9,20 @@
 #######################
 
 #Log File
-#LOG="$(dirname "$0")/aircheck.log"
 LOG="/Users/autobot/Library/Logs/Automation/aircheck.log"
 
 #File type to record to
 FILETYPE='mp3'
 
-#The filename to record to, formatted as "YYYYMMDD HHMMPM Aircheck.mp3"
-FILENAME=$(date '+20%y%m%d %I%M%p Aircheck.')
+#The filename to record to, formatted as "YYYYMMDD HHMM Aircheck.mp3"
+FILENAME=$(date '+20%y%m%d %H%M Aircheck.')
 FILENAME="$FILENAME$FILETYPE"
 
 #The output directory to record to **Keep this as a local drive, not a network drive**
 RECDIR='/Users/autobot/Documents/'
 
 #Directory to move the recorded files to, presumably a shared drive
-OUTDIR="/Users/autobot/Desktop/Airchecks/"
+OUTDIR="/Volumes/Airchecks/"
 #Separates the airchecks into folders by days
 OUTDIR="$OUTDIR$(date '+20%y%m%d')/"
 

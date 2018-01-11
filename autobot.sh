@@ -13,16 +13,19 @@
 LOG="/Users/autobot/Library/Logs/Automation/autobot.log"
 
 #Location of iTunes Library on Office Computer
-LIBRARY="/Volumes/kureadmin/Dropbox/Library/iTunes Library.xml"
+LIBRARY="/Users/autobot/Music/iTunes/iTunes Music Library.xml"
+
+#Location of iTunes Library files on Office Computer
+LIBRARYFILES="/Users/autobot/Music/iTunes/iTunes Media/"
 
 #Location of the itunes Export java app (http://www.ericdaugherty.com/dev/itunesexport/)
 APP="/Applications/iTunesExport/itunesexport.jar"
 
 #Playlists to Export, separated by commas
-PLAYLISTS="Autobot Low, Autobot Medium, Partybot, Groovebot, Autobot High, Autobot Light, DJoftheMonth"
+PLAYLISTS="Autobot Low, Autobot Medium, Partybot, Groovebot, Autobot High, Autobot Light"
 
-#Location to save playlists
-OUTPUTDIR="/Volumes/Automation/New Automation"
+#Location to save playlists and copy files to
+OUTPUTDIR="/Volumes/Automation/Playlists"
 
 ####################
 ##  SCRIPT START  ##
@@ -37,13 +40,14 @@ echo "" >> "$LOG" 2>&1
 
 #Export all of the $PLAYLIST playlists, to the playlists directory on the automation machine
 # -copy=PLAYLIST copies over the files in addition to the playlists, and organizes them into folders based on the playlists
-java -mx1024m -jar $APP -library="$LIBRARY" -outputDir="$OUTPUTDIR" -includePlaylist="$PLAYLISTS" -fileTypes=ALL -copy=PLAYLIST >> "$LOG" 2>&1
+java -mx1024m -jar $APP -library="$LIBRARY" -outputDir="$OUTPUTDIR" -includePlaylist="$PLAYLISTS" -musicPath="$LIBRARYFILES" -copy=PLAYLIST -fileTypes=ALL >> "$LOG" 2>&1
 
 #Replace forward slashes (Unix) with backslashes (windows)
 sed -i '' 's/\//\\/g' "$OUTPUTDIR/"*.m3u >> "$LOG" 2>&1
+chflags nohidden "$OUTPUTDIR/"*.m3u >> "$LOG" 2>&1
 
 # ????
-sed -i "" '1d' "$OUTPUTDIR/"*.m3u >> "$LOG" 2>&1
+#sed -i "" '1d' "$OUTPUTDIR/"*.m3u >> "$LOG" 2>&1
 
 #Log File Closing
 echo "" >> "$LOG" 2>&1
