@@ -35,13 +35,13 @@
 
     <authentication>
         <!-- Sources log in with username 'source' -->
-        <source-password>********</source-password>
+        <source-password>*******</source-password>
         <!-- Relays log in with username 'relay' -->
-        <relay-password>********</relay-password>
+        <relay-password>*******</relay-password>
 
         <!-- Admin logs in with the username given below -->
-        <admin-user>********</admin-user>
-        <admin-password>********</admin-password>
+        <admin-user>*******</admin-user>
+        <admin-password>*********</admin-password>
     </authentication>
 
     <!-- set the mountpoint for a shoutcast source to use, the default if not
@@ -146,38 +146,51 @@
 
         <username>********</username>
         <password>********</password>
-	<fallback-mount>/KUREBroadcast</fallback-mount>
-	<fallback-override>1</fallback-override>
+	<hidden>0</hidden>
         <max-listeners>300</max-listeners>
-        <stream-name>The Basement Webcast</stream-name>
+	<fallback-mount>/BasementAutomation</fallback-mount>
+	<fallback-override>1</fallback-override>
+	<stream-name>The Basement Webcast</stream-name>
         <stream-url>http://www.kure885.org</stream-url>
         <genre>Indie</genre>
+
     </mount>
-	
+
+    <mount type="normal">
+	<mount-name>/BasementAutomation</mount-name>
+	<username>********</username>
+	<hidden>0</hidden>
+	<max-listeners>300</max-listeners>
+	<stream-name>The Basement</stream-name>
+	<stream-url>http://kure885.org</stream-url>
+	<genre>Indie</genre>
+
+    </mount>
+
     <mount type="normal">
         <mount-name>/ISUTV</mount-name>
 
-        <username>********</username>
-        <password>********</password>
+        <username>*******</username>
+        <password>*******</password>
         <hidden>0</hidden>
 	<max-listeners>300</max-listeners>
         <stream-name>ISU TV</stream-name>
         <stream-url>http://www.isutv.stuorg.iastate.edu</stream-url>
         <genre>Indie</genre>
     </mount>
-	
+
     <mount type="normal">
         <mount-name>/KURESports</mount-name>
 
-        <username>********</username>
-        <password>********</password>
-        <hidden>0</hidden>
-	<max-listeners>300</max-listeners>
-        <fallback-mount>/KUREBroadcast</fallback-mount>
+        <username>*********</username>
+        <password>*********</password>
+        <fallback-mount>KUREBroadcast</fallback-mount>
         <fallback-override>1</fallback-override>
+        <hidden>0</hidden>
+        <max-listeners>300</max-listeners>
         <stream-name>KURE Sports</stream-name>
-        <stream-url>sports.kure885.org</stream-url>
-        <genre>Indie</genre>
+        <stream-url>http://sports.kure885.org</stream-url>
+        <genre>Sports</genre>
     </mount>
 
 
