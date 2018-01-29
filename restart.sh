@@ -17,17 +17,17 @@ echo >> $LOG
 echo $CURRENTDATE >> $LOG
 
 echo "Updating package list." >> $LOG
-apt-get update
+apt-get update >> $LOG
 
 echo "Autoremoving." >> $LOG
-apt autoremove -y
+apt autoremove -y >> $LOG
 
 echo "Upgrading packages." >> $LOG
-apt-get upgrade -y
+apt-get upgrade -y >> $LOG
 
 
 echo "Scheduling shutdown for $SHUTDOWNDATE " >> $LOG
-shutdown 5 -r
+shutdown 5 -r >> $LOG
  
 echo >> $LOG
 echo "END" >> $LOG
