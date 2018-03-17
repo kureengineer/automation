@@ -38,6 +38,14 @@ echo "Autobot Update Starting..." >> "$LOG" 2>&1
 date >> "$LOG" 2>&1
 echo "" >> "$LOG" 2>&1
 
+# Remove the previous m3u files, as overwriting caused weirdness
+rm -rf "$OUTPUTDIR"/Autobot\ Light.m3u
+rm -rf "$OUTPUTDIR"/Autobot\ Low.m3u
+rm -rf "$OUTPUTDIR"/Autobot\ High.m3u
+rm -rf "$OUTPUTDIR"/Autobot\ Medium.m3u
+rm -rf "$OUTPUTDIR"/Autobot\ Groovebot.m3u
+rm -rf "$OUTPUTDIR"/Autobot\ Partybot.m3u
+
 #Export all of the $PLAYLIST playlists, to the playlists directory on the automation machine
 # -copy=PLAYLIST copies over the files in addition to the playlists, and organizes them into folders based on the playlists
 java -mx1024m -jar $APP -library="$LIBRARY" -outputDir="$OUTPUTDIR" -includePlaylist="$PLAYLISTS" -musicPath="$LIBRARYFILES" -copy=PLAYLIST -fileTypes=ALL >> "$LOG" 2>&1
