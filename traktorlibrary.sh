@@ -31,16 +31,19 @@ IP="192.168.0.11"
 SRC="/Users/autobot/Music/iTunes/iTunes Media/Music/"
 
 #Destination of music library files
-DST="autobot@$IP:/Users/Shared/Music/"
+DST="kureadmin@$IP:/Users/Shared/Music/"
 
-#Location to save playlists
-OUTPUTDIR="/Volumes/Playlists"
+#Destination of playlist files
+PLAYLISTDST="kureadmin@$IP:/Users/Shared/"
+
+#Location to save playlists (locally)
+OUTPUTDIR="/Users/autobot/Playlists/"
 
 #Office iTunes media folder (from the Office perspective) - ESCAPE ALL FORWARD SLASHES
-OFFICE="\/Volumes\/Music\/"
+OFFICE="\/Users\/autobot\/Music\/iTunes\/iTunes Media\/Music\/"
 
 #Studio iTunes media folder (from the Studio perspective) - ESCAPE ALL FORWARD SLASHES
-STUDIO="\/Users\/Shared\/KURETraktor\/Music\/"
+STUDIO="\/Users\/Shared\/Music\/"
 
 
 ####################
@@ -56,7 +59,7 @@ echo "" >> "$LOG" 2>&1
 
 #Check to make sure NAS is active on the network
 if
-/sbin/ping -o -c 3 -t 1 "$IP"
+/sbin/ping -o -c 3 -t 1 "$IP" >> "$LOG" 2>&1
 then
 
 #If it is,
@@ -91,6 +94,12 @@ SEDCMD="sed -i '' 's/"
 SEDCMD="$SEDCMD$OFFICE/$STUDIO/g' $OUTPUTDIR/*.m3u >> \"LOG\""
 #Execute the sed command
 eval "$SEDCMD" >> "$LOG" 2>&1
+
+echo "Copying Playlists to Studio Computer" >> "$LOG" 2>&1
+
+#use scp to copy playlists to studio computer
+scp -r $OUTPUTDIR $PLAYLISTDST >> "$LOG" 2>&1
+
 
 echo "Playlist Update Complete" >> "$LOG" 2>&1
 
